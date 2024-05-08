@@ -1,3 +1,4 @@
 .vs
-src/AdressBook.Api/bin
-src/AdressBook.Api/obj
+obj/
+src/AdressBook.Api/bin/
+src/AdressBook.Api/obj/

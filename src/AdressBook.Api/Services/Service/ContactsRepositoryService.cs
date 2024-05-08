@@ -31,9 +31,9 @@ namespace AdressBook.Api.Services.Service
             return await _contactsCollection.Find(_ => true).ToListAsync();
         }
 
-        public Task<Concact> GetByID(int ID)
+        public async Task<Concact> GetByID(string ID)
         {
-            throw new NotImplementedException();
+             return await _contactsCollection.Find(x => x.Id == ID).FirstOrDefaultAsync();
         }
 
         public Task Insert(Concact entity)

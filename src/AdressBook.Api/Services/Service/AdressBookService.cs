@@ -1,6 +1,7 @@
 ﻿using models = AdressBook.Api.Models;
 using AdressBook.Api.Services.Interface;
 using System.Reflection;
+using AdressBook.Api.Models;
 
 namespace AdressBook.Api.Services.Service
 {
@@ -10,6 +11,11 @@ namespace AdressBook.Api.Services.Service
         public AdressBookService(IRepository<models.Concact> repository)
         {
             _repoService = repository;
+        }
+
+        public async Task<Concact> GetConcactAsync(string ID)
+        {
+             return await _repoService.GetByID(ID);
         }
 
         public async Task<IEnumerable<models.Concact>> GetConcactsAsync()

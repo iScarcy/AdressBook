@@ -19,5 +19,12 @@ namespace AdressBook.Api.Controllers
         {
             return await _service.GetConcactsAsync();
         }
+
+        [HttpGet("{Id}")]
+        public async Task<models.Concact> Get(string Id)
+        {
+            return await _service.GetConcactAsync(Id);
+        }
     }
 }
+ 

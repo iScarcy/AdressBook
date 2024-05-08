@@ -4,7 +4,7 @@
     {
         Task<IEnumerable<T>> GetAll();
 
-        Task<T> GetByID(int ID);
+        Task<T> GetByID(string ID);
 
         Task Insert(T entity);
 
