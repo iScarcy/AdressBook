@@ -1207,25 +1207,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/peppe/.nuget/packages/": {}
+    "C:\\Users\\Giuseppe Scarcella\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/peppe/App/dotnet/AdressBook/src/AdressBook.Api/AdressBook.Api.csproj",
+      "projectUniqueName": "C:\\Dev\\AdressBook\\src\\AdressBook.Api\\AdressBook.Api.csproj",
       "projectName": "AdressBook.Api",
-      "projectPath": "/Users/peppe/App/dotnet/AdressBook/src/AdressBook.Api/AdressBook.Api.csproj",
-      "packagesPath": "/Users/peppe/.nuget/packages/",
-      "outputPath": "/Users/peppe/App/dotnet/AdressBook/src/AdressBook.Api/obj/",
+      "projectPath": "C:\\Dev\\AdressBook\\src\\AdressBook.Api\\AdressBook.Api.csproj",
+      "packagesPath": "C:\\Users\\Giuseppe Scarcella\\.nuget\\packages\\",
+      "outputPath": "C:\\Dev\\AdressBook\\src\\AdressBook.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/peppe/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Giuseppe Scarcella\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nexusrepo.aruba.it/repository/nuget-arch": {},
+        "https://nexusrepo.aruba.it/repository/nuget-devspa-progettigenerali": {},
+        "https://proget.staff.aruba.it/nuget/DEVELOPMENT": {},
+        "https://proget.staff.aruba.it/nuget/ExternalLibs": {},
+        "https://proget.staff.aruba.it/nuget/PRODUCTION": {},
+        "https://proget.staff.aruba.it/nuget/STABLE": {}
       },
       "frameworks": {
         "net6.0": {
@@ -1271,7 +1279,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.421/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.118\\RuntimeIdentifierGraph.json"
       }
     }
   }
