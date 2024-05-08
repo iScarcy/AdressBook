@@ -9,27 +9,27 @@ public class Concact
     [BsonRepresentation(BsonType.ObjectId)]
     public string? Id { get; set; }
 
-    [BsonElement("Nome")]
+    [BsonElement("nome")]
     public string Nome { get; set; } = string.Empty;
     
-    [BsonElement("Cognome")]
+    [BsonElement("cognome")]
     public string Cognome { get; set; } = string.Empty;
 
-    [BsonElement("DataNascita")]
+    [BsonElement("dataNascita")]
     public DateTime DataNascita { get; set; } 
 
-    [BsonElement("LuogoNascita")]
+    [BsonElement("luogoNascita")]
     public string LuogoNascita { get; set; } = string.Empty;
 
-    [BsonElement("Email")]
+    [BsonElement("email")]
     public string Email { get; set; } = string.Empty;
 
-    [BsonElement("Sesso")]
+    [BsonElement("sesso")]
     public string Sesso { get; set; } = string.Empty; 
 
-    [BsonElement("Tel")]
+    [BsonElement("tel")]
     public string Tel { get; set; } = string.Empty;
 
-    [BsonElement("Cell")]
+    [BsonElement("cell")]
     public string Cell { get; set; } = string.Empty;
 }

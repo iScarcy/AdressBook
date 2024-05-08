@@ -1,3 +1,4 @@
+using AdressBook.Api.Services;
 using AdressBook.Api.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add services to the container.
-builder.Services.Configure<AdressBookDatabaseSettings>(
-    builder.Configuration.GetSection("AdressBookDatabase"));
+builder.Services.AddAdressBookDatabaseService(builder.Configuration.GetSection("AdressBookDatabase"));
 
 var app = builder.Build();
 
