@@ -6,8 +6,10 @@
 
         Task<T> GetByID(string ID);
 
-        Task Insert(T entity);
+        Task<T> Insert(T entity);
 
-        Task Update(T entity);
+        Task UpdateAsync(T entity);
+
+        Task DeleteAsync(string ID);
     }
 }

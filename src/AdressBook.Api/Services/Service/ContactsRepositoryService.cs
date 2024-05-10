@@ -25,6 +25,9 @@ namespace AdressBook.Api.Services.Service
           
         }
 
+        public async Task DeleteAsync(string id) =>
+        await _contactsCollection.DeleteOneAsync(x => x.Id == id);
+
 
         public async Task<IEnumerable<Concact>> GetAll()
         {
@@ -36,14 +39,14 @@ namespace AdressBook.Api.Services.Service
              return await _contactsCollection.Find(x => x.Id == ID).FirstOrDefaultAsync();
         }
 
-        public Task Insert(Concact entity)
+        public async Task<Concact> Insert(Concact entity)
         {
-            throw new NotImplementedException();
+            await _contactsCollection.InsertOneAsync(entity);
+            return entity;
         }
 
-        public Task Update(Concact entity)
-        {
-            throw new NotImplementedException();
-        }
+
+        public async Task UpdateAsync(Concact entity) =>
+            await _contactsCollection.ReplaceOneAsync(x => x.Id == entity.Id, entity);
     }
 }

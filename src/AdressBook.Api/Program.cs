@@ -12,6 +12,8 @@ builder.Services.AddSwaggerGen();
 
 // Add services to the container.
 builder.Services.AddAdressBookDatabaseService(builder.Configuration.GetSection("AdressBookDatabase"));
+builder.Services.AddRecurringEventsService(builder.Configuration.GetSection("RecurringEvent"));
+
 
 var app = builder.Build();
 
