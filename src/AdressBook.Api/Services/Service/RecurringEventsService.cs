@@ -7,6 +7,7 @@ using System.Text;
 using AdressBook.Api.Settings;
 using System.Net.Http.Headers;
 using Microsoft.Extensions.Options;
+using AdressBook.Api.Controllers.Models;
 
 namespace AdressBook.Api.Services.Service
 {
@@ -33,6 +34,21 @@ namespace AdressBook.Api.Services.Service
 
             using HttpResponseMessage response = await _client.PostAsync(
            _settingsAPI.UriRecurringEvent + _settingsAPI.ApiPersonWasCreated,
+           jsonContent);
+
+            
+        }
+
+        public async Task ChangeBirtDayDete(ChangeDateRequest request)
+        {
+            
+            using StringContent jsonContent = new(
+              JsonSerializer.Serialize(request),
+              Encoding.UTF8,
+              "application/json");
+
+            using HttpResponseMessage response = await _client.PatchAsync(
+           _settingsAPI.UriRecurringEvent + _settingsAPI.ApiChangeBirtDayDete,
            jsonContent);
 
             
