@@ -3,6 +3,8 @@ using AdressBook.Api.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
+string Service_URL = builder.Configuration["AppSettings:Service_URL"];
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -30,4 +32,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run("http://+:5000");
+app.Run(Service_URL);
