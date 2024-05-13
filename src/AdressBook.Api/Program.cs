@@ -16,6 +16,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAdressBookDatabaseService(builder.Configuration.GetSection("AdressBookDatabase"));
 builder.Services.AddRecurringEventsService(builder.Configuration.GetSection("RecurringEvent"));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
