@@ -31,7 +31,7 @@ namespace AdressBook.Api.Controllers
         }
 
         [HttpPost()]
-        public async Task Insert(models.Concact contact)
+        public async Task<ContactCreateResponse> Insert(models.Concact contact)
         {
             ContactCreateResponse responseCreate = await _serviceAddrBook.InsertAsync(contact);       
             
@@ -42,6 +42,7 @@ namespace AdressBook.Api.Controllers
                 await _serviceEvents.CreatePerson(person);
             }
 
+            return responseCreate;
         }
 
         [HttpDelete]
