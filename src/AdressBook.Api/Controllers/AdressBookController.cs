@@ -55,6 +55,14 @@ namespace AdressBook.Api.Controllers
         public async Task Update(models.Concact contact) 
         { 
             await _serviceAddrBook.UpdateContactAsync(contact);
+
+            if (!string.IsNullOrWhiteSpace(contact.Id)) 
+            {
+                ChangeDateRequest request = new ChangeDateRequest { objID = contact.Id, newBirthDay = contact.DataNascita };
+
+                await _serviceEvents.ChangeBirtDayDete(request);
+            }
+            
         }
     }
 }
