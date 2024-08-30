@@ -8,9 +8,9 @@ using models = AdressBook.Api.Models;
 
 namespace AdressBook.Api.Services.Service
 {
-    public class ContactsRepositoryService : IRepository<Concact>
+    public class ContactsRepositoryService : IRepository<Contact>
     {
-        private readonly IMongoCollection<Concact> _contactsCollection;
+        private readonly IMongoCollection<Contact> _contactsCollection;
 
         public ContactsRepositoryService(IOptions<AdressBookDatabaseSettings> adressBookDatabase)
         {
@@ -20,7 +20,7 @@ namespace AdressBook.Api.Services.Service
             var mongoDatabase = mongoClient.GetDatabase(
                 adressBookDatabase.Value.DatabaseName);
 
-            _contactsCollection = mongoDatabase.GetCollection<Concact>(
+            _contactsCollection = mongoDatabase.GetCollection<Contact>(
                 adressBookDatabase.Value.AdressBookCollectionName);
           
         }
@@ -29,24 +29,24 @@ namespace AdressBook.Api.Services.Service
         await _contactsCollection.DeleteOneAsync(x => x.Id == id);
 
 
-        public async Task<IEnumerable<Concact>> GetAll()
+        public async Task<IEnumerable<Contact>> GetAll()
         {
             return await _contactsCollection.Find(_ => true).ToListAsync();
         }
 
-        public async Task<Concact> GetByID(string ID)
+        public async Task<Contact> GetByID(string ID)
         {
              return await _contactsCollection.Find(x => x.Id == ID).FirstOrDefaultAsync();
         }
 
-        public async Task<Concact> Insert(Concact entity)
+        public async Task<Contact> Insert(Contact entity)
         {
             await _contactsCollection.InsertOneAsync(entity);
             return entity;
         }
 
 
-        public async Task UpdateAsync(Concact entity) =>
+        public async Task UpdateAsync(Contact entity) =>
             await _contactsCollection.ReplaceOneAsync(x => x.Id == entity.Id, entity);
     }
 }

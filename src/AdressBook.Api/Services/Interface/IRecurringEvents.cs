@@ -7,6 +7,6 @@ namespace AdressBook.Api.Services.Interface
     {
         Task CreatePerson(Person person);
 
-        Task ChangeBirtDayDete(ChangeDateRequest request);
+        Task ChangeBirthDay(ChangeDateRequest request);
     }
 }

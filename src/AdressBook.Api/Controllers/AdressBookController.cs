@@ -19,19 +19,19 @@ namespace AdressBook.Api.Controllers
         }
 
         [HttpGet()]
-        public async Task<IEnumerable<models.Concact>> GetAll()
+        public async Task<IEnumerable<models.Contact>> GetAll()
         {
             return await _serviceAddrBook.GetConcactsAsync();
         }
 
         [HttpGet("{Id}")]
-        public async Task<models.Concact> Get(string Id)
+        public async Task<models.Contact> Get(string Id)
         {
             return await _serviceAddrBook.GetConcactAsync(Id);
         }
 
         [HttpPost()]
-        public async Task<ContactCreateResponse> Insert(models.Concact contact)
+        public async Task<ContactCreateResponse> Insert(models.Contact contact)
         {
             ContactCreateResponse responseCreate = await _serviceAddrBook.InsertAsync(contact);       
             
@@ -52,7 +52,7 @@ namespace AdressBook.Api.Controllers
         }
 
         [HttpPatch]
-        public async Task Update(models.Concact contact) 
+        public async Task Update(models.Contact contact) 
         { 
             await _serviceAddrBook.UpdateContactAsync(contact);
 
@@ -60,9 +60,22 @@ namespace AdressBook.Api.Controllers
             {
                 ChangeDateRequest request = new ChangeDateRequest { objID = contact.Id, newBirthDay = contact.DataNascita };
 
-                await _serviceEvents.ChangeBirtDayDete(request);
+                await _serviceEvents.ChangeBirthDay(request);
             }
             
+        }
+
+        [HttpPatch("ChangeBirthDay")]
+        public async Task ChangeBirthDay(ChangeDateRequest request)
+        {
+            models.Contact contact = await _serviceAddrBook.GetConcactAsync(request.objID);
+            if(contact!= null)
+            {
+                contact.DataNascita = request.newBirthDay;
+                await _serviceAddrBook.UpdateContactAsync(contact);
+                await _serviceEvents.ChangeBirthDay(request);
+            }
+
         }
     }
 }

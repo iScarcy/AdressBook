@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace AdressBook.Api.Models;
 
-public class Concact
+public class Contact
 {   
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]

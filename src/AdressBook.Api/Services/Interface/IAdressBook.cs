@@ -5,13 +5,13 @@ namespace AdressBook.Api.Services.Interface
 {
     public interface IAdressBook
     {
-        Task<IEnumerable<models.Concact>> GetConcactsAsync();
+        Task<IEnumerable<models.Contact>> GetConcactsAsync();
 
-        Task<models.Concact> GetConcactAsync(string ID);
+        Task<models.Contact> GetConcactAsync(string ID);
 
-        Task<ContactCreateResponse> InsertAsync(models.Concact concact);
+        Task<ContactCreateResponse> InsertAsync(models.Contact concact);
 
-        Task UpdateContactAsync(models.Concact concact);
+        Task UpdateContactAsync(models.Contact concact);
 
         Task DeleteContactAsync(string Id);
     }

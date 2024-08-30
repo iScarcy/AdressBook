@@ -1,4 +1,5 @@
-.vs
+
+.vs/
 obj/
 src/AdressBook.Api/bin/
 src/AdressBook.Api/obj/

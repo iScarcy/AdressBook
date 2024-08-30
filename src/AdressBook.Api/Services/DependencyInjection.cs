@@ -12,7 +12,7 @@ namespace AdressBook.Api.Services
         {
             service.Configure<AdressBookDatabaseSettings>(adressBookDatabaseSection);
 
-            service.AddScoped<IRepository<Models.Concact>, ContactsRepositoryService>();
+            service.AddScoped<IRepository<Models.Contact>, ContactsRepositoryService>();
             service.AddScoped<IAdressBook, AdressBookService>();
  
             return service;

@@ -8,8 +8,8 @@ namespace AdressBook.Api.Services.Service
 {
     public class AdressBookService : IAdressBook
     {
-        private readonly IRepository<models.Concact> _repoService;
-        public AdressBookService(IRepository<models.Concact> repository)
+        private readonly IRepository<models.Contact> _repoService;
+        public AdressBookService(IRepository<models.Contact> repository)
         {
             _repoService = repository;
         }
@@ -21,23 +21,23 @@ namespace AdressBook.Api.Services.Service
             await _repoService.DeleteAsync(Id);
         }
 
-        public async Task<Concact> GetConcactAsync(string ID)
+        public async Task<Contact> GetConcactAsync(string ID)
         {
              return await _repoService.GetByID(ID);
         }
 
-        public async Task<IEnumerable<models.Concact>> GetConcactsAsync()
+        public async Task<IEnumerable<models.Contact>> GetConcactsAsync()
         {
             return await _repoService.GetAll();
         }
 
-        public async Task<ContactCreateResponse> InsertAsync(Concact concact)
+        public async Task<ContactCreateResponse> InsertAsync(Contact concact)
         {
             await _repoService.Insert(concact);
             return new ContactCreateResponse { ObjID = concact.Id };
         }
 
-        public async Task UpdateContactAsync(Concact concact)
+        public async Task UpdateContactAsync(Contact concact)
         {
            
            if(concact == null) throw new ArgumentNullException(nameof(concact));

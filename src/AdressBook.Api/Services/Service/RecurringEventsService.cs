@@ -39,7 +39,7 @@ namespace AdressBook.Api.Services.Service
             
         }
 
-        public async Task ChangeBirtDayDete(ChangeDateRequest request)
+        public async Task ChangeBirthDay(ChangeDateRequest request)
         {
             
             using StringContent jsonContent = new(
