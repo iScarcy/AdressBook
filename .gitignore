@@ -3,3 +3,5 @@
 obj/
 src/AdressBook.Api/bin/
 src/AdressBook.Api/obj/
+src/.DS_Store
+.DS_Store
