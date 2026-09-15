@@ -37,9 +37,11 @@ namespace AdressBook.Api.Controllers
             
             if(!string.IsNullOrWhiteSpace(responseCreate.ObjID))
             {
-                Person person = new Person { BirthDay = contact.DataNascita, FullName = contact.Nome + " " + contact.Cognome, ObjIdRef = responseCreate.ObjID };
+                //qui dovrei mandare un messagio su kafka sul topic addressbook con i dati dell'evento PersonCreated, i
+                // n questo modo il servizio eventi può creare la persona e schedulare l'evento ricorrente per il compleanno
+                //Person person = new Person { BirthDay = contact.DataNascita, FullName = contact.Nome + " " + contact.Cognome, ObjIdRef = responseCreate.ObjID };
 
-                await _serviceEvents.CreatePerson(person);
+                //await _serviceEvents.CreatePerson(person);
             }
 
             return responseCreate;
