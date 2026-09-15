@@ -11,11 +11,9 @@ namespace AdressBook.Api.Controllers
     public class AdressBookController : Controller
     {
         private readonly IAdressBook _serviceAddrBook ;
-        private readonly IRecurringEvents _serviceEvents;
-        public AdressBookController(IAdressBook serviceAddrBook, IRecurringEvents serviceEvents)
+        public AdressBookController(IAdressBook serviceAddrBook)
         {
             _serviceAddrBook = serviceAddrBook;
-            _serviceEvents = serviceEvents;
         }
 
         [HttpGet()]
@@ -60,25 +58,13 @@ namespace AdressBook.Api.Controllers
 
             if (!string.IsNullOrWhiteSpace(contact.Id)) 
             {
-                ChangeDateRequest request = new ChangeDateRequest { objID = contact.Id, newBirthDay = contact.DataNascita };
-
-                await _serviceEvents.ChangeBirthDay(request);
+               
+               //TODO: INVIARE MESSAGGIO SU RABBIT PER L'AGGIORNAMENTO 
             }
             
         }
 
-        [HttpPatch("ChangeBirthDay")]
-        public async Task ChangeBirthDay(ChangeDateRequest request)
-        {
-            models.Contact contact = await _serviceAddrBook.GetConcactAsync(request.objID);
-            if(contact!= null)
-            {
-                contact.DataNascita = request.newBirthDay;
-                await _serviceAddrBook.UpdateContactAsync(contact);
-                await _serviceEvents.ChangeBirthDay(request);
-            }
-
-        }
+      
     }
 }
  

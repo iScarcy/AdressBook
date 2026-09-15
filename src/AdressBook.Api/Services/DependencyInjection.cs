@@ -18,14 +18,5 @@ namespace AdressBook.Api.Services
             return service;
         }
 
-        public static IServiceCollection AddRecurringEventsService(this IServiceCollection service, IConfigurationSection recurringEventsSection)
-        {
-            
-            service.Configure<RecurringEventSettings>(recurringEventsSection);
- 
-            service.AddScoped<IRecurringEvents, RecurringEventsService>();
-
-            return service;
-        }
     }
 }
