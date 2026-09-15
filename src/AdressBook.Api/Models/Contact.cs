@@ -32,4 +32,7 @@ public class Contact
 
     [BsonElement("cell")]
     public string Cell { get; set; } = string.Empty;
+
+    [BsonElement("dataOnomastico")]
+    public DateTime? DataOnomastico { get; set; } 
 }

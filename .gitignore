@@ -3,5 +3,8 @@
 obj/
 src/AdressBook.Api/bin/
 src/AdressBook.Api/obj/
+src/AdressBook.Api/*.json
+src/AdressBook.Api/*.user
 src/.DS_Store
 .DS_Store
+
